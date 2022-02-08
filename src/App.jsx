@@ -4,9 +4,13 @@ import QuizScreen from "./components/QuizScreen/QuizScreen";
 import { useState } from "react";
 
 function App() {
-  const [isStart, setIsStart] = useState(true);
+  const [isStartScreen, setIsStartScreen] = useState(true);
 
-  return <div className="App">{isStart ? <StartScreen /> : <QuizScreen />}</div>;
+  function startQuiz() {
+    setIsStartScreen(false);
+  }
+
+  return <div className="App">{isStartScreen ? <StartScreen load={startQuiz} /> : <QuizScreen />}</div>;
 }
 
 export default App;

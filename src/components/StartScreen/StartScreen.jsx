@@ -5,7 +5,9 @@ export default function StartScreen(props) {
     <div className="start-container">
       <h1 className="title">Quizzical</h1>
       <p className="subtitle">Welcome to Quizzical!</p>
-      <button className="start-quiz">Start quiz</button>
+      <button className="start-quiz" onClick={props.load}>
+        Start quiz
+      </button>
     </div>
   );
 }
