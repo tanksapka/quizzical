@@ -1,10 +1,11 @@
 .quiz-item-container {
+  max-width: 50em;
+  width: 70%;
+  padding-bottom: 0.5em;
   margin-bottom: 1.5em;
   display: grid;
-  grid-template-rows: 1fr 1fr;
   row-gap: 1em;
-  padding-bottom: 1em;
-  border-bottom: 0.794239px solid #dbdef0;
+  border-bottom: 0.05em solid #dbdef0;
 }
 
 .question {
@@ -13,7 +14,7 @@
   font-style: normal;
   font-weight: bold;
   font-size: 1.4rem;
-  line-height: 1.2rem;
+  line-height: 1.5rem;
   color: #293264;
 }
 
@@ -28,9 +29,9 @@
 }
 
 .answer-item {
+  margin-bottom: 1em;
   padding: 0.5em 0.75em;
-  min-width: 4em;
-  font-family: Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 0.8rem;
@@ -39,6 +40,7 @@
   color: #293264;
   border-radius: 0.6em;
   cursor: default;
+  align-self: flex-start;
 }
 
 .answer-regaular {
