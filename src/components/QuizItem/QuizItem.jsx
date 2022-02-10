@@ -1,22 +1,27 @@
 import "./QuizItem.css";
 
 export default function QuizItem(props) {
-  console.log(props);
-
   function getClassName(answer) {
     let cssValue = "answer-item ";
 
-    if (answer === props.selectedAnswer) {
-      if (props.isSubmitted && answer === props.correct_answer) {
+    if (props.isSubmitted) {
+      if (answer === props.correct_answer) {
         cssValue = cssValue + "answer-right";
-      } else if (props.isSubmitted && answer !== props.correct_answer) {
-        cssValue = cssValue + "answer-wrong";
-      } else {
-        cssValue = cssValue + "answer-selected";
+      } else if (answer !== props.correct_answer) {
+        if (answer === props.selectedAnswer) {
+          cssValue = cssValue + "answer-wrong";
+        } else {
+          cssValue = cssValue + "answer-disabled";
+        }
       }
     } else {
-      cssValue = cssValue + (props.isSubmitted ? "answer-disabled" : "answer-regaular");
+      if (answer === props.selectedAnswer) {
+        cssValue = cssValue + "answer-selected";
+      } else {
+        cssValue = cssValue + "answer-regaular";
+      }
     }
+
     return cssValue;
   }
 

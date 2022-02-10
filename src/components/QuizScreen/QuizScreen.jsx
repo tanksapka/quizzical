@@ -11,6 +11,7 @@ function decodeHtml(html) {
 export default function QuizScreen(props) {
   const [questions, setQuestions] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [reloadQuestions, setReloadQuestions] = useState(false);
 
   useEffect(() => {
     fetch("https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple")
@@ -28,7 +29,12 @@ export default function QuizScreen(props) {
         }))
       )
       .then((finalData) => setQuestions(finalData));
-  }, []);
+  }, [reloadQuestions]);
+
+  function handleClick() {
+    isSubmitted && setReloadQuestions((oldValue) => !oldValue);
+    setIsSubmitted((oldValue) => !oldValue);
+  }
 
   const quizItemList = questions.map((q, idx) => (
     <QuizItem
@@ -46,9 +52,18 @@ export default function QuizScreen(props) {
   return (
     <main className="quiz-container">
       {quizItemList}
-      <button className="check-answers" onClick={() => setIsSubmitted((oldValue) => !oldValue)}>
-        Check answers
-      </button>
+      <div className="footer">
+        {isSubmitted && (
+          <p className="results">
+            {`You scored
+            ${questions.map((q) => q.selectedAnswer === q.correct_answer).reduce((prev, current) => prev + current)} / 
+            ${questions.length} correct answers`}
+          </p>
+        )}
+        <button className="check-answers" onClick={handleClick}>
+          {isSubmitted ? "Play again" : "Check answers"}
+        </button>
+      </div>
     </main>
   );
 }

@@ -7,9 +7,8 @@
 }
 
 .check-answers {
-  margin-top: 0.5em;
+  margin-left: auto;
   font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-style: normal;
   font-weight: 500;
   font-size: 0.9rem;
   line-height: 1.2rem;
@@ -31,4 +30,22 @@
 .check-answers:active {
   border: inset 0.3em #3b4eaf;
   color: #ebebeb;
+}
+
+.footer {
+  max-width: 50em;
+  width: 70%;
+  margin: 0.5em auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.results {
+  margin: 0;
+  padding-left: 1em;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #293264;
 }
